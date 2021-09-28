@@ -1,2 +1,3 @@
 # boilerplate
-humpback boilerplate
+
+VariousJS boilerplate

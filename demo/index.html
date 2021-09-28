@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title> Humpback </title>
+<title> VariousJS </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@4.16.13/dist/antd.compact.min.css" />
 </head>
 <body>
 <div id="root"></div>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/humpback.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@variousjs/various@0.0.1/dist/index.js"></script>
 <script>
 var config = {
   root: '#root',
@@ -19,24 +19,24 @@ var config = {
     antd: 'https://cdn.jsdelivr.net/npm/antd@4.16.13/dist/antd-with-locales.min.js',
   },
   components: {
-    com: './dist/component.js'
+    component: './dist/component.js'
   },
   pagess: [
     {
       path: ['/', '/:id'],
-      components: ['com']
+      components: ['component']
     },
   ],
 }
 
-var humpback = new window.Humpback(config)
+var various = new window.Various(config)
 
-humpback.onError = function(e) {
+various.onError = function(e) {
   console.log(e)
   document.write(e.message)
 }
 
-humpback.start()
+various.start()
 </script>
 
 </body>

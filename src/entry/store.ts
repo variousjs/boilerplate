@@ -1,5 +1,5 @@
 export default {
   user: {
-    name: 'humpback',
+    name: 'various',
   },
 }

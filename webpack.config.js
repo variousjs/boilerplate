@@ -1,10 +1,18 @@
 const { resolve, join } = require('path')
 
-const { ENTRY } = process.env
+const { NODE_ENV = 'development' } = process.env
 
 const config = {
-  entry: join(__dirname, ENTRY),
-  output: {},
+  entry: {
+    component: join(__dirname, './src/component.tsx'),
+    entry: join(__dirname, './src/entry'),
+  },
+  output: {
+    path: resolve(__dirname, './demo/dist'),
+    publicPath: '/dist/',
+    filename: '[name].js',
+    libraryTarget: 'amd',
+  },
   target: ['web', 'es5'],
   externals: {
     react: {
@@ -23,11 +31,26 @@ const config = {
       root: 'Nycticorax',
       amd: 'nycticorax',
     },
+    antd: {
+      root: 'antd',
+      amd: 'antd',
+    },
   },
-  mode: 'production',
+  mode: NODE_ENV,
   devtool: 'source-map',
   resolve: {
+    // 必须加上 .js，不然 webpack dev server 会报错找不到模块
     extensions: ['.js', '.ts', '.tsx'],
+  },
+  devServer: {
+    allowedHosts: 'all',
+    port: 2333,
+    host: '0.0.0.0',
+    hot: true,
+    https: true,
+    static: {
+      directory: join(__dirname, './demo'),
+    },
   },
   module: {
     rules: [
@@ -48,16 +71,32 @@ const config = {
           },
         },
       },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[local]_[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              sourceMap: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
-}
-
-const name = ENTRY.split('/').slice(-1)[0].split('.')[0]
-
-config.output = {
-  path: resolve(__dirname, './docs/dist'),
-  filename: `${name}.js`,
-  libraryTarget: 'amd',
 }
 
 module.exports = config

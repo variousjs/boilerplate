@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -15,6 +16,9 @@ module.exports = {
       typescript: {
         alwaysTryTypes: true,
       },
+    },
+    react: {
+      version: 'latest',
     },
   },
   parser: '@typescript-eslint/parser',
