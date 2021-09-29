@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js",
-    "start": "webpack serve --progress",
+    "start": "webpack --progress --config webpack.component.config.js & webpack serve --config webpack.entry.config.js --progress",
     "build": "NODE_ENV=production webpack --progress"
   },
   "repository": {
