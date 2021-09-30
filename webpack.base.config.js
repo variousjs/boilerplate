@@ -3,6 +3,10 @@ const { resolve, join } = require('path')
 const { NODE_ENV = 'development' } = process.env
 
 const config = {
+  entry: {
+    component: join(__dirname, './src/component.tsx'),
+    entry: join(__dirname, './src/entry'),
+  },
   output: {
     path: resolve(__dirname, './demo/dist'),
     publicPath: '/dist/',
@@ -46,7 +50,8 @@ const config = {
     static: {
       directory: join(__dirname, './demo'),
     },
-    watchFiles: ['src'],
+    // 监听文件构建后重新刷新页面，包括 html 文件
+    watchFiles: ['demo'],
   },
   module: {
     rules: [

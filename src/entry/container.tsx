@@ -9,7 +9,7 @@ class Container extends Component<ContainerProps<Store, Config>> {
 
     return (
       <Router>
-        <div>!!?</div>
+        <div>!!!</div>
         {
           $config.pages.map(({ path, components }) => {
             const C = $component(components[0])

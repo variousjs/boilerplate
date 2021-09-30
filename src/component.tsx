@@ -2,7 +2,7 @@ import React from 'react'
 
 const H = () => {
   return (
-    <div>666</div>
+    <div>6666</div>
   )
 }
 

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js",
     "start": "webpack --progress --config webpack.component.config.js & webpack serve --config webpack.entry.config.js --progress",
-    "build": "NODE_ENV=production webpack --progress"
+    "build": "NODE_ENV=production webpack --progress --config webpack.base.config.js"
   },
   "repository": {
     "type": "git",
