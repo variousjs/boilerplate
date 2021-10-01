@@ -23,9 +23,19 @@ var config = {
   },
   pages: [
     {
-      path: ['/', '/:id'],
+      path: ['/', '/com/:id'],
       components: ['component']
     },
+  ],
+  links: [
+    {
+      name: 'Router `/`',
+      path: '/',
+    },
+    {
+      name: 'Router `/com/5`',
+      path: '/com/5',
+    }
   ],
 }
 

@@ -5,5 +5,9 @@ export type Config = {
   pages: {
     path: string[],
     components: string[],
+  }[],
+  links: {
+    path: string,
+    name: string,
   }[]
 }
