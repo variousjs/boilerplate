@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { ComponentProps } from '@variousjs/various'
 import { Card } from 'antd'
-import csses from './component.less'
+import csses from './card.less'
 
 const H: FC<ComponentProps> = (props) => {
   const id = props.$router?.match.params.id

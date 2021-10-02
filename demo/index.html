@@ -15,16 +15,20 @@ var config = {
   entry: './dist/entry.js',
   routerMode: 'hash',
   dependencies: {
+    // 依赖定义
     moment: 'https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js',
     antd: 'https://cdn.jsdelivr.net/npm/antd@4.16.13/dist/antd-with-locales.min.js',
   },
   components: {
-    component: './dist/component.js'
+    // 组件定义
+    card: './dist/card.js'
   },
+
+  // 以下属于自定义属性
   pages: [
     {
       path: ['/', '/com/:id'],
-      components: ['component']
+      components: ['card']
     },
   ],
   links: [

@@ -4,8 +4,10 @@ const { NODE_ENV = 'development' } = process.env
 
 const config = {
   entry: {
-    component: join(__dirname, './src/component.tsx'),
     entry: join(__dirname, './src/entry'),
+
+    // 组件入口定义
+    card: join(__dirname, './src/components/card.tsx'),
   },
   output: {
     path: resolve(__dirname, './demo/dist'),
@@ -15,6 +17,7 @@ const config = {
   },
   target: ['web', 'es5'],
   externals: {
+    // 通用排除
     react: {
       root: 'React',
       amd: 'react',
@@ -31,6 +34,8 @@ const config = {
       root: 'Nycticorax',
       amd: 'nycticorax',
     },
+
+    // 自定义
     antd: {
       root: 'antd',
       amd: 'antd',
