@@ -18,7 +18,7 @@ module.exports = {
       },
     },
     react: {
-      version: 'latest',
+      version: '17',
     },
   },
   parser: '@typescript-eslint/parser',

@@ -1,5 +1,6 @@
 const base = require('./webpack.base.config')
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { entry, ...rest } = base.entry
 const config = {
   ...base,
