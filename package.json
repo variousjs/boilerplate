@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "VariousJS boilerplate",
   "bin": "bin/create.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js",
     "start": "webpack --progress --config webpack.component.config.js & webpack serve --config webpack.entry.config.js --progress",
@@ -16,7 +19,7 @@
     "template",
     "variousjs"
   ],
-  "author": "",
+  "author": "LoeiFy <LoeiFy@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/variousjs/boilerplate/issues"
