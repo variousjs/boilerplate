@@ -21,14 +21,19 @@ var config = {
   },
   components: {
     // 组件定义
-    card: './dist/card.js'
+    card: './dist/card.js',
+    next: './dist/next.js',
   },
 
   // 以下属于自定义属性
   pages: [
     {
       path: ['/', '/com/:id'],
-      components: ['card']
+      components: ['card', 'next']
+    },
+    {
+      path: '/error',
+      components: ['error'],
     },
   ],
   links: [
@@ -39,7 +44,11 @@ var config = {
     {
       name: 'Router `/com/5`',
       path: '/com/5',
-    }
+    },
+    {
+      name: 'Router `error`',
+      path: '/error',
+    },
   ],
 }
 

@@ -36,6 +36,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'react/prop-types': 0,
   },
 }
