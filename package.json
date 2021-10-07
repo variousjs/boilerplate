@@ -1,6 +1,6 @@
 {
   "name": "@variousjs/create",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "VariousJS boilerplate",
   "bin": "bin/create.js",
   "publishConfig": {
@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js",
     "start": "webpack --progress --config webpack.component.config.js & webpack serve --config webpack.entry.config.js --progress",
-    "build": "NODE_ENV=production webpack --progress --config webpack.base.config.js"
+    "build": "NODE_ENV=production webpack --progress --config webpack.base.config.js",
+    "prepublishOnly": "COPY_ENV=publish node bin/copy.js",
+    "postinstall": "COPY_ENV=init node bin/copy.js"
   },
   "repository": {
     "type": "git",
