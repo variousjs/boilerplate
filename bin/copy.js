@@ -17,4 +17,12 @@ files.forEach((name) => {
   } catch (e) {
     // ignore
   }
+
+  if (COPY_ENV === 'init') {
+    try {
+      fs.unlinkSync(copyName)
+    } catch (e) {
+      // ignore
+    }
+  }
 })
