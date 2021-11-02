@@ -3,6 +3,7 @@
 const path = require('path')
 const fs = require('fs')
 
+const configFiles = ['.gitignore', 'package-lock.json', 'package.json']
 const ignores = [
   '.git',
   'bin',
@@ -43,5 +44,21 @@ files.forEach(({ src, dest, destPath }) => {
     fs.copyFileSync(src, dest, fs.constants.COPYFILE_EXCL)
   } catch (e) {
     // ignore
+  }
+})
+
+configFiles.forEach((name) => {
+  const copyName = `${name}.copy`
+
+  try {
+    fs.copyFileSync(copyName, name, fs.constants.COPYFILE_FICLONE)
+  } catch (e) {
+    console.log(e.message)
+  }
+
+  try {
+    fs.unlinkSync(copyName)
+  } catch (e) {
+    console.log(e.message)
   }
 })
