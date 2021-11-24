@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Nycticorax, { Connect as CT } from 'nycticorax'
-import { ComponentProps } from '@variousjs/various'
+import { ComponentProps, Nycticorax, Connect as CT } from '@variousjs/various'
 import { Descriptions } from 'antd'
 import { Store as GlobalStore } from '../types'
 

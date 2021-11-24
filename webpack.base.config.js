@@ -26,13 +26,9 @@ const config = {
       root: 'ReactDOM',
       amd: 'react-dom',
     },
-    'react-router-dom': {
-      root: 'ReactRouterDOM',
-      amd: 'react-router-dom',
-    },
-    nycticorax: {
-      root: 'Nycticorax',
-      amd: 'nycticorax',
+    '@variousjs/various': {
+      root: 'various',
+      amd: '@variousjs/various',
     },
 
     // 自定义

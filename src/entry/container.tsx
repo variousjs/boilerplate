@@ -1,6 +1,5 @@
 import React, { Component, ComponentType } from 'react'
-import { Route } from 'react-router-dom'
-import { ContainerProps } from '@variousjs/various'
+import { ContainerProps, Router, Route } from '@variousjs/various'
 import { Radio, Badge, Button } from 'antd'
 import { Store, Config } from '../types'
 import csses from './entry.less'
@@ -20,7 +19,7 @@ class Container extends Component<ContainerProps<Store, Config>> {
   }
 
   render() {
-    const { Router, $component, $config, $store } = this.props
+    const { $component, $config, $store } = this.props
 
     return (
       <div className={csses.container}>
