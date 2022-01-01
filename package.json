@@ -8,8 +8,8 @@
   },
   "scripts": {
     "lint": "tsc --noemit && eslint . --ext .ts,.tsx,.js",
-    "start": "webpack --progress --config webpack.component.config.js & webpack serve --config webpack.entry.config.js --progress",
-    "build": "webpack --progress --config webpack.base.config.js",
+    "start": "webpack --progress --config ./webpack/component.js & webpack serve --config ./webpack/entry.js --progress",
+    "build": "webpack --progress --config ./webpack/base.js",
     "prepublishOnly": "node bin/copy.js"
   },
   "repository": {
@@ -36,7 +36,7 @@
     "@types/react-router-dom": "^5.3.1",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
-    "@variousjs/various": "^0.3.0",
+    "@variousjs/various": "^0.4.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "eslint": "^7.32.0",
