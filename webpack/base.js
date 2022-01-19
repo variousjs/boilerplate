@@ -8,6 +8,7 @@ const config = {
     // 组件入口定义
     card: path.join(__dirname, '../src/components/card.tsx'),
     next: path.join(__dirname, '../src/components/next.tsx'),
+    top: path.join(__dirname, '../src/components/top.tsx'),
   },
   output: {
     path: path.resolve(__dirname, '../demo/dist'),
@@ -25,6 +26,10 @@ const config = {
     'react-dom': {
       root: 'ReactDOM',
       amd: 'react-dom',
+    },
+    'react-router-dom': {
+      root: 'ReactRouterDOM',
+      amd: 'react-router-dom',
     },
     '@variousjs/various': {
       root: 'various',
