@@ -36,7 +36,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
-    "@variousjs/various": "^0.5.0",
+    "@variousjs/various": "^0.6.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "eslint": "^7.32.0",
