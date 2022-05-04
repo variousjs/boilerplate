@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ComponentProps, Store, Connect as CT } from '@variousjs/various'
+import { ComponentProps, Store, Connect as CT, Invoker } from '@variousjs/various'
 import { Descriptions } from 'antd'
 import { Store as GlobalStore } from '../types'
 
@@ -9,16 +9,16 @@ type Connect = CT<S>
 const {
   createStore,
   connect,
-  dispatch,
+  emit,
   getStore,
 } = new Store<S>()
 
 createStore({ value: 0 })
 
 class X extends Component<Connect & ComponentProps<GlobalStore>> {
-  static setValue = async (value: number) => {
+  static setValue: Invoker = async ({ value }) => {
     const store = getStore()
-    dispatch({ value: value + store.value }, true)
+    emit({ value: value + store.value }, true)
   }
 
   render() {

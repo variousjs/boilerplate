@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import { ComponentProps } from '@variousjs/various'
+import { ComponentProps, Invoker } from '@variousjs/various'
 import { useParams } from 'react-router-dom'
 import { Card, Button, message } from 'antd'
 import csses from './card.less'
 
-const H: FC<ComponentProps> & { getName: (e: string) => any } = (props) => {
+const H: FC<ComponentProps> & { getName: Invoker } = (props) => {
   const { id } = useParams<{ id: string }>()
 
   return (
@@ -41,6 +41,6 @@ const H: FC<ComponentProps> & { getName: (e: string) => any } = (props) => {
   )
 }
 
-H.getName = (e) => message.info(e)
+H.getName = (e) => message.info(e.value)
 
 export default H
