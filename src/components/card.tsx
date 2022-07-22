@@ -2,9 +2,10 @@ import React, { FC } from 'react'
 import { ComponentProps, Invoker } from '@variousjs/various'
 import { useParams } from 'react-router-dom'
 import { Card, Button, message } from 'antd'
+import { Store } from '../types'
 import csses from './card.less'
 
-const H: FC<ComponentProps> & { getName: Invoker } = (props) => {
+const H: FC<ComponentProps<Store>> & { getName: Invoker } = (props) => {
   const { id } = useParams<{ id: string }>()
 
   return (
@@ -19,7 +20,12 @@ const H: FC<ComponentProps> & { getName: Invoker } = (props) => {
             onClick={() => props.$dispatch('next', 'setValue', 1)}
           >
             Next
-          </Button> : null,
+          </Button> : <Button
+            key="locale"
+            onClick={() => props.$dispatch('store', 'setLocale', props.$store.locale === 'zh' ? 'en' : 'zh')}
+          >
+            locale
+          </Button>,
           <Button
             key="store"
             type="primary"
