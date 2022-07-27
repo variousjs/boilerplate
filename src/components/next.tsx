@@ -41,7 +41,7 @@ class X extends Component<Connect & ComponentProps<GlobalStore>> {
       >
         <Descriptions.Item label="Store">{user.name}</Descriptions.Item>
         <Descriptions.Item label="Value">{value}</Descriptions.Item>
-        <Descriptions.Item label="Title">{$t('title')}</Descriptions.Item>
+        <Descriptions.Item label="Title">{$t('title', { name: 'various' })}</Descriptions.Item>
       </Descriptions>
     )
   }
