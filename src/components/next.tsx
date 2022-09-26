@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { ComponentProps, Store, Connect as CT, Invoker, Ii8n } from '@variousjs/various'
+import { ComponentProps, Store, Invoker, Ii8n } from '@variousjs/various'
 import { Descriptions } from 'antd'
 import { Store as GlobalStore } from '../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
 
 type S = { value: number }
-type Connect = CT<S>
 
 const {
   createStore,
@@ -17,7 +16,7 @@ const {
 
 createStore({ value: 0 })
 
-class X extends Component<Connect & ComponentProps<GlobalStore>> {
+class X extends Component<S & ComponentProps<GlobalStore>> {
   static setValue: Invoker = async ({ value }) => {
     const store = getStore()
     emit({ value: value + store.value }, true)
