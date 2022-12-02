@@ -47,6 +47,6 @@ const H: FC<ComponentProps<Store>> & { getName: Invoker } = (props) => {
   )
 }
 
-H.getName = (e) => message.info(e.value)
+H.getName = (e) => message.info(e)
 
 export default H
