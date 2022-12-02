@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
-import { ComponentProps } from '@variousjs/various'
+import { ComponentProps, getConfig } from '@variousjs/various'
 import { useLocation, useHistory } from 'react-router-dom'
 import { Radio, Badge, Button } from 'antd'
 import { Config, Store } from '../types'
 
-const H: FC<ComponentProps<Store, Config>> = (props) => {
+const H: FC<ComponentProps<Store>> = (props) => {
+  const $config = getConfig() as Config
   const { pathname } = useLocation()
   const history = useHistory()
   const [path, setPath] = useState('')
@@ -27,7 +28,7 @@ const H: FC<ComponentProps<Store, Config>> = (props) => {
       buttonStyle="solid"
     >
       {
-        props.$config.links.map(({ path, name }) => (
+        $config.links.map(({ path, name }) => (
           <Radio.Button key={path} value={path}>
             {name}
           </Radio.Button>

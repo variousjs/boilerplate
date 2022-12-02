@@ -17,7 +17,7 @@ const {
 createStore({ value: 0 })
 
 class X extends Component<S & ComponentProps<GlobalStore>> {
-  static setValue: Invoker = async ({ value }) => {
+  static setValue: Invoker = async (value) => {
     const store = getStore()
     emit({ value: value + store.value }, true)
   }

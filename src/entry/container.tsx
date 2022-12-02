@@ -1,13 +1,24 @@
-import React, { Component, ComponentType } from 'react'
-import { ContainerProps } from '@variousjs/various'
+import React, { Component, ComponentType, memo } from 'react'
+import { createComponent, getConfig } from '@variousjs/various'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import { Config } from '../types'
 import csses from './entry.less'
 
-class Container extends Component<ContainerProps<Config>> {
+class Container extends Component {
+  config = getConfig() as Config
+
+  top = memo(createComponent('top'))
+
+  components = this.config.pages.reduce((prev, current) => {
+    current.components.forEach((item) => {
+      prev[item] = memo(createComponent(item))
+    })
+    return prev
+  }, {} as Record<string, ReturnType<typeof createComponent>>)
+
   render() {
-    const { $component, $config } = this.props
-    const Top = $component('top')
+    const Top = this.top
+    const $config = this.config
 
     return (
       <div className={csses.container}>
@@ -18,7 +29,7 @@ class Container extends Component<ContainerProps<Config>> {
           {
             $config.pages.map(({ path, components }) => {
               const cs = () => components.map((name) => {
-                const C = $component(name)
+                const C = this.components[name]
                 return (
                   <div
                     key={name}
