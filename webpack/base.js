@@ -11,7 +11,7 @@ const config = {
     top: path.join(__dirname, '../src/components/top.tsx'),
   },
   output: {
-    path: path.resolve(__dirname, '../demo/dist'),
+    path: path.resolve(__dirname, '../public/dist'),
     publicPath: '/dist/',
     filename: '[name].js',
     libraryTarget: 'amd',
@@ -34,10 +34,10 @@ const config = {
     port: 2333,
     host: '0.0.0.0',
     static: {
-      directory: path.join(__dirname, '../demo'),
+      directory: path.join(__dirname, '../public'),
     },
     // 监听文件构建后重新刷新页面，包括 html 文件
-    watchFiles: ['demo'],
+    watchFiles: ['public'],
   },
   module: {
     rules: [
