@@ -1,6 +1,6 @@
-import React, { Component, ComponentType, memo } from 'react'
+import React, { Component, memo } from 'react'
 import { createComponent, getConfig } from '@variousjs/various'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { Config } from '../types'
 import csses from './entry.less'
 
@@ -26,9 +26,10 @@ class Container extends Component {
           <div className={csses.top}>
             <Top />
           </div>
+          <Routes>
           {
             $config.pages.map(({ path, components }) => {
-              const cs = () => components.map((name) => {
+              const CS = components.map((name) => {
                 const C = this.components[name]
                 return (
                   <div
@@ -42,14 +43,14 @@ class Container extends Component {
 
               return (
                 <Route
-                  key={Array.isArray(path) ? path.join() : path}
-                  exact
+                  key={path}
                   path={path}
-                  component={cs as unknown as ComponentType}
+                  element={CS}
                 />
               )
             })
           }
+          </Routes>
         </Router>
       </div>
     )

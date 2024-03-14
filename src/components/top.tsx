@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { ComponentProps, getConfig } from '@variousjs/various'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Config, Store } from '../types'
 
 const H: FC<ComponentProps<Store>> = (props) => {
   const $config = getConfig() as Config
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const onRouterChange = (p: string) => {
-    history.push(p)
+    navigate(p)
   }
 
   return (

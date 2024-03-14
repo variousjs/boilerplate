@@ -34,7 +34,11 @@ const config = {
   },
   pages: [
     {
-      path: ['/', '/com/:id'],
+      path: '/',
+      components: ['card', 'next']
+    },
+    {
+      path: '/com/:id',
       components: ['card', 'next']
     },
     {
