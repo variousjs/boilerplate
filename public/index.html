@@ -1,52 +1,44 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<title> VariousJS </title>
-<script>
-var VARIOUS_CONFIG = {
-  env: 'development', // 开发模式，显示所有组件错误
-  root: '#root',
-  entry: './dist/entry.js',
-  dependencies: {
-    react: 'https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js',
-    'react-dom': 'https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js',
-    'react-router-dom': 'https://cdn.jsdelivr.net/npm/react-router-dom@5.3.0/umd/react-router-dom.min.js',
-
-    card: './dist/card.js',
-    next: './dist/next.js',
-    top: './dist/top.js',
+<!doctype html><html><head><meta charset="UTF-8"/><title>VariousJS</title><script>var VARIOUS_CONFIG = {
+  "env": "development",
+  "entry": "./dist/entry.js",
+  "dependencies": {
+    "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js",
+    "react-router-dom": "https://cdn.jsdelivr.net/npm/@variousjs/registry@0.1.5/dist/react-router-dom/6.22.1/index.js",
+    "card": "./dist/card.js",
+    "next": "./dist/next.js",
+    "top": "./dist/top.js"
   },
-  pages: [
+  "pages": [
     {
-      path: ['/', '/com/:id'],
-      components: ['card', 'next']
+      "path": [
+        "/",
+        "/com/:id"
+      ],
+      "components": [
+        "card",
+        "next"
+      ]
     },
     {
-      path: '/error',
-      components: ['error'],
-    },
+      "path": "/error",
+      "components": [
+        "error"
+      ]
+    }
   ],
-  links: [
+  "links": [
     {
-      name: 'Router `/`',
-      path: '/',
+      "name": "Router `/`",
+      "path": "/"
     },
     {
-      name: 'Router `/com/5`',
-      path: '/com/5',
+      "name": "Router `/com/5`",
+      "path": "/com/5"
     },
     {
-      name: 'Router `error`',
-      path: '/error',
-    },
-  ],
-}
-</script>
-</head>
-<body>
-<div id="root"></div>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@variousjs/various@3.1.0/dist/index.js"></script>
-</body>
-</html>
+      "name": "Router `error`",
+      "path": "/error"
+    }
+  ]
+}</script></head><body><div id="root"></div><script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script><script src="https://cdn.jsdelivr.net/npm/@variousjs/various@3.1.0/dist/index.js"></script></body></html>

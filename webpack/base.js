@@ -1,6 +1,14 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const variousConfig = require('../various.config')
 
 const config = {
+  plugins: [new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, '../src/index.html'),
+    filename: path.resolve(__dirname, '../public/index.html'),
+    config: JSON.stringify(variousConfig, null, 2),
+    inject: false,
+  })],
   stats: 'minimal',
   entry: {
     entry: path.join(__dirname, '../src/entry'),
