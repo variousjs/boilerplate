@@ -4,7 +4,7 @@ import { Store } from '../types'
 const actions: Actions<Store> = {
   async setName({ emit, getStore }, value) {
     await new Promise((r) => setTimeout(r, 1000))
-    const { user } = getStore()
+    const user = getStore('user')
     user.name = value
     emit({ user })
   },

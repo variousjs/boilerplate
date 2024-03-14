@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { ComponentProps, Store, Invoker, Ii8n } from '@variousjs/various'
-import { Descriptions } from 'antd'
-import { Store as GlobalStore } from '../types'
+import { ComponentProps, Nycticorax, Invoker, I18n } from '@variousjs/various'
+import { Store } from '../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
 
@@ -12,17 +11,17 @@ const {
   connect,
   emit,
   getStore,
-} = new Store<S>()
+} = new Nycticorax<S>()
 
 createStore({ value: 0 })
 
-class X extends Component<S & ComponentProps<GlobalStore>> {
+class X extends Component<S & ComponentProps<Store>> {
   static setValue: Invoker = async (value) => {
     const store = getStore()
     emit({ value: value + store.value }, true)
   }
 
-  static $i18n: Ii8n = () => ({
+  static $i18n: I18n = () => ({
     localeKey: 'locale',
     resources: { zh, en },
   })
@@ -32,16 +31,15 @@ class X extends Component<S & ComponentProps<GlobalStore>> {
     const { value, $t } = this.props
 
     return (
-      <Descriptions
+      <div
         style={{ marginTop: 30 }}
-        bordered
         title="Next Component"
-        size="small"
       >
-        <Descriptions.Item label="Store">{user.name}</Descriptions.Item>
-        <Descriptions.Item label="Value">{value}</Descriptions.Item>
-        <Descriptions.Item label="Title">{$t('title', { name: 'various' })}</Descriptions.Item>
-      </Descriptions>
+        <h2>Next Component</h2>
+        <p>{user.name}</p>
+        <p>{value}</p>
+        <p>{$t('title', { name: 'various' })}</p>
+      </div>
     )
   }
 }

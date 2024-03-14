@@ -17,31 +17,12 @@ const config = {
     libraryTarget: 'amd',
   },
   target: ['web', 'es5'],
-  externals: {
-    // 通用排除
-    react: {
-      root: 'React',
-      amd: 'react',
-    },
-    'react-dom/client': {
-      root: 'ReactDOM',
-      amd: 'react-dom',
-    },
-    'react-router-dom': {
-      root: 'ReactRouterDOM',
-      amd: 'react-router-dom',
-    },
-    '@variousjs/various': {
-      root: 'various',
-      amd: '@variousjs/various',
-    },
-
-    // 自定义
-    antd: {
-      root: 'antd',
-      amd: 'antd',
-    },
-  },
+  externals: [
+    'react',
+    'react-dom/client',
+    'react-router-dom',
+    '@variousjs/various',
+  ],
   mode: 'production',
   devtool: 'source-map',
   resolve: {

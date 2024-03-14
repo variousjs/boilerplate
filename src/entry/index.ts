@@ -1,5 +1,16 @@
-export { default as actions } from './actions'
-export { default as store } from './store'
-export { default as Container } from './container'
-export { default as Loader } from './loader'
-export { default as Error } from './error'
+import { Entry } from '@variousjs/various'
+import actions from './actions'
+import store from './store'
+import Container from './container'
+import Loader from './loader'
+import Error from './error'
+
+const entry: Entry<typeof store> = {
+  store,
+  Container,
+  Loader,
+  Error,
+  actions,
+}
+
+export default entry
