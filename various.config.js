@@ -28,6 +28,8 @@ const config = {
     ...getPackageSrc('react-dom'),
     ...getPackageSrc('react-router-dom'),
 
+    ui: './dist/ui.js',
+
     card: './dist/card.js',
     next: './dist/next.js',
     top: './dist/top.js',

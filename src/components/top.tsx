@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import { ComponentProps, getConfig } from '@variousjs/various'
 import { useNavigate } from 'react-router-dom'
+import { Button, Alert, AlertDescription, AlertTitle } from 'ui'
+import { RocketIcon } from "@radix-ui/react-icons"
 import { Config, Store } from '../types'
 
 const H: FC<ComponentProps<Store>> = (props) => {
@@ -23,12 +25,18 @@ const H: FC<ComponentProps<Store>> = (props) => {
     <div>
       Store:
       <p>{props.$store.user.name}</p>
-      <button
-        style={{ marginLeft: 10 }}
+      <Button
         onClick={() => props.$dispatch('card', 'getName', 'Card')}
       >
         Card Name
-      </button>
+      </Button>
+      <Alert>
+      <RocketIcon className="h-8 w-8" />
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
       </div>
     </>
   )

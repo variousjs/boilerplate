@@ -16,7 +16,11 @@
     "removeComments": true,
     "stripInternal": true,
     "resolveJsonModule": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@/*": ["./src/shadcn-ui/*"],
+      "ui": ["./src/shadcn-ui/index.ts"]
+    }
   },
-  "exclude": ["dist", "docs"],
+  "exclude": ["dist", "docs"]
 }

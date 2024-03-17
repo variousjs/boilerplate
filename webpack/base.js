@@ -11,9 +11,8 @@ const config = {
   })],
   stats: 'minimal',
   entry: {
+    ui: path.join(__dirname, '../src/shadcn-ui/index.ts'),
     entry: path.join(__dirname, '../src/entry'),
-
-    // 组件入口定义
     card: path.join(__dirname, '../src/components/card.tsx'),
     next: path.join(__dirname, '../src/components/next.tsx'),
     top: path.join(__dirname, '../src/components/top.tsx'),
@@ -30,12 +29,16 @@ const config = {
     'react-dom/client',
     'react-router-dom',
     '@variousjs/various',
+    'ui',
   ],
   mode: 'production',
   devtool: 'source-map',
   resolve: {
     // 必须加上 .js，不然 webpack dev server 会报错找不到模块
     extensions: ['.js', '.ts', '.tsx'],
+    alias: {
+      '@': path.resolve(__dirname, '../src/shadcn-ui'),
+    },
   },
   devServer: {
     allowedHosts: 'all',
