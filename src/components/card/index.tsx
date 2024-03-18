@@ -1,8 +1,8 @@
 import React from 'react'
 import { ComponentNode } from '@variousjs/various'
 import { useParams } from 'react-router-dom'
-import { Store } from '../types'
-import csses from './card.less'
+import { Store } from '../../types'
+import csses from './index.less'
 
 const H = ((props) => {
   const { id } = useParams<{ id: string }>()

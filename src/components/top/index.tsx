@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { ComponentProps, getConfig } from '@variousjs/various'
 import { useNavigate } from 'react-router-dom'
-import { Button, Alert, AlertDescription, AlertTitle } from 'ui'
+import { Button, Alert, AlertDescription, AlertTitle } from 'shadcn-ui'
 import { RocketIcon } from "@radix-ui/react-icons"
-import { Config, Store } from '../types'
+import { Config, Store } from '../../types'
 
 const H: FC<ComponentProps<Store>> = (props) => {
   const $config = getConfig() as Config

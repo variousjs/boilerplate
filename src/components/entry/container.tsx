@@ -1,7 +1,7 @@
 import React, { Component, memo } from 'react'
 import { createComponent, getConfig } from '@variousjs/various'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
-import { Config } from '../types'
+import { Config } from '../../types'
 import csses from './entry.less'
 
 class Container extends Component {

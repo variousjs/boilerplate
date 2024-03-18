@@ -6,16 +6,13 @@ const config = {
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, '../src/index.html'),
     filename: path.resolve(__dirname, '../public/index.html'),
-    config: JSON.stringify(variousConfig, null, 2),
+    config: JSON.stringify(variousConfig.config, null, 2),
     inject: false,
   })],
   stats: 'minimal',
   entry: {
-    ui: path.join(__dirname, '../src/shadcn-ui/index.ts'),
-    entry: path.join(__dirname, '../src/entry'),
-    card: path.join(__dirname, '../src/components/card.tsx'),
-    next: path.join(__dirname, '../src/components/next.tsx'),
-    top: path.join(__dirname, '../src/components/top.tsx'),
+    ...variousConfig.components,
+    'shadcn-ui': path.join(__dirname, '../src/shadcn-ui/index.ts'),
   },
   output: {
     path: path.resolve(__dirname, '../public/dist'),
@@ -29,7 +26,7 @@ const config = {
     'react-dom/client',
     'react-router-dom',
     '@variousjs/various',
-    'ui',
+    'shadcn-ui',
   ],
   mode: 'production',
   devtool: 'source-map',

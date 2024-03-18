@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ComponentProps, Nycticorax, Invoker, I18n } from '@variousjs/various'
-import { Store } from '../types'
+import { Store } from '../../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
 

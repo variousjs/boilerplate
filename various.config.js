@@ -1,5 +1,23 @@
+const path = require('path')
+const fs = require('fs')
 /** @type {import('@variousjs/registry').Packages} */
 const registry = require('@variousjs/registry')
+
+const components = fs
+  .readdirSync(path.resolve(__dirname, './src/components'))
+  .reduce((prev, cur) => {
+    return {
+      ...prev,
+      [cur]: path.join(__dirname, `./src/components/${cur}`),
+    }
+  }, {})
+
+const { entry, ...depsComponents } = Object.keys(components).reduce((prev, cur) => {
+  return {
+    ...prev,
+    [cur]: `./dist/${cur}.js`,
+  }
+}, {})
 
 /**
  * @param {keyof typeof registry} name
@@ -22,17 +40,13 @@ const getPackageSrc = (name) => {
 /** @type {import('@variousjs/various').Config} */
 const config = {
   env: 'development',
-  entry: './dist/entry.js',
+  entry,
   dependencies: {
     ...getPackageSrc('react'),
     ...getPackageSrc('react-dom'),
     ...getPackageSrc('react-router-dom'),
-
-    ui: './dist/ui.js',
-
-    card: './dist/card.js',
-    next: './dist/next.js',
-    top: './dist/top.js',
+    'shadcn-ui': './dist/shadcn-ui.js',
+    ...depsComponents,
   },
   pages: [
     {
@@ -64,4 +78,4 @@ const config = {
   ],
 }
 
-module.exports = config
+module.exports = { config, components }

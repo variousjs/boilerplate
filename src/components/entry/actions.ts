@@ -1,5 +1,5 @@
 import { Actions } from '@variousjs/various'
-import { Store } from '../types'
+import { Store } from '../../types'
 
 const actions: Actions<Store> = {
   async setName({ emit, getStore }, value) {
