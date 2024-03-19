@@ -10,10 +10,7 @@ const config = {
     inject: false,
   })],
   stats: 'minimal',
-  entry: {
-    ...variousConfig.components,
-    'shadcn-ui': path.join(__dirname, '../src/shadcn-ui/index.ts'),
-  },
+  entry: variousConfig.components,
   output: {
     path: path.resolve(__dirname, '../public/dist'),
     publicPath: '/dist/',
@@ -26,7 +23,7 @@ const config = {
     'react-dom/client',
     'react-router-dom',
     '@variousjs/various',
-    'shadcn-ui',
+    ...variousConfig.externals,
   ],
   mode: 'production',
   devtool: 'source-map',

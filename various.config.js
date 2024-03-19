@@ -19,6 +19,8 @@ const { entry, ...depsComponents } = Object.keys(components).reduce((prev, cur) 
   }
 }, {})
 
+const externals = ['shadcn-ui']
+
 /**
  * @param {keyof typeof registry} name
  */
@@ -54,7 +56,7 @@ const config = {
       components: ['card', 'next']
     },
     {
-      path: '/com/:id',
+      path: '/next/:id',
       components: ['card', 'next']
     },
     {
@@ -64,18 +66,22 @@ const config = {
   ],
   links: [
     {
-      name: 'Router `/`',
+      name: 'Home',
       path: '/',
     },
     {
-      name: 'Router `/com/5`',
-      path: '/com/5',
+      name: 'Next',
+      path: '/next/5',
     },
     {
-      name: 'Router `error`',
+      name: 'Error',
       path: '/error',
     },
   ],
 }
 
-module.exports = { config, components }
+module.exports = {
+  config,
+  components: { ...components, 'shadcn-ui': path.resolve('./src/shadcn-ui/index.ts') },
+  externals,
+}
