@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ComponentProps, Nycticorax, Invoker, I18n } from '@variousjs/various'
+import { Card, Button } from 'shadcn-ui'
 import { Store } from '../../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
@@ -28,18 +29,26 @@ class X extends Component<S & ComponentProps<Store>> {
 
   render() {
     const { user } = this.props.$store
-    const { value, $t } = this.props
+    const { value, $t, $dispatch } = this.props
 
     return (
-      <div
-        style={{ marginTop: 30 }}
-        title="Next Component"
-      >
-        <h2>Next Component</h2>
-        <p>{user.name}</p>
-        <p>{value}</p>
-        <p>{$t('title', { name: 'various' })}</p>
-      </div>
+      <Card.Card>
+        <Card.CardHeader>
+          <Card.CardTitle>Next Component</Card.CardTitle>
+          <Card.CardDescription>Global Store: {user.name}</Card.CardDescription>
+        </Card.CardHeader>
+        <Card.CardContent>
+          <p>Component value: {value}</p>
+          <p>Locale: {$t('title', { name: 'various' })}</p>
+        </Card.CardContent>
+        <Card.CardFooter>
+          <Button
+            onClick={() => $dispatch('card', 'logName')}
+          >
+            Name
+          </Button>
+        </Card.CardFooter>
+      </Card.Card>
     )
   }
 }

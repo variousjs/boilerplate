@@ -1,11 +1,10 @@
 import React, { FC } from 'react'
-import { ComponentProps, getConfig } from '@variousjs/various'
+import { ComponentProps, getConfig, ComponentNode } from '@variousjs/various'
 import { useNavigate } from 'react-router-dom'
-import { Button, Alert, AlertDescription, AlertTitle } from 'shadcn-ui'
-import { RocketIcon } from "@radix-ui/react-icons"
+import { Menu, Card } from 'shadcn-ui'
 import { Config, Store } from '../../types'
 
-const H: FC<ComponentProps<Store>> = (props) => {
+export const H: FC<ComponentProps<Store>> = () => {
   const $config = getConfig() as Config
   const navigate = useNavigate()
 
@@ -14,32 +13,23 @@ const H: FC<ComponentProps<Store>> = (props) => {
   }
 
   return (
-    <>
-    {
-      $config.links.map(({ path, name }) => (
-        <button key={path} value={path} onClick={() => onRouterChange(path)}>
-          {name}
-        </button>
-      ))
-    }
-    <div>
-      Store:
-      <p>{props.$store.user.name}</p>
-      <Button
-        onClick={() => props.$dispatch('card', 'getName', 'Card')}
-      >
-        Card Name
-      </Button>
-      <Alert>
-      <RocketIcon className="h-8 w-8" />
-      <AlertTitle>Heads up!</AlertTitle>
-      <AlertDescription>
-        You can add components to your app using the cli.
-      </AlertDescription>
-    </Alert>
-      </div>
-    </>
+    <Menu.Menubar>
+      {$config.links.map(({ path, name }) => (
+        <Menu.MenubarMenu key={path}>
+          <Menu.MenubarTrigger onClick={() => onRouterChange(path)}>{name}</Menu.MenubarTrigger>
+        </Menu.MenubarMenu>
+      ))}
+    </Menu.Menubar>
   )
 }
 
-export default H
+export const S = ((props) => {
+  return (
+    <Card.Card>
+      <Card.CardHeader>
+        <Card.CardTitle>Global Store</Card.CardTitle>
+        <Card.CardDescription>{props.$store.user.name}</Card.CardDescription>
+      </Card.CardHeader>
+    </Card.Card>
+  )
+}) as ComponentNode<Store>

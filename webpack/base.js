@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const variousConfig = require('../various.config')
 
+const { NODE_ENV } = process.env
+
 const config = {
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, '../src/index.html'),
@@ -20,12 +22,13 @@ const config = {
   target: ['web', 'es5'],
   externals: [
     'react',
+    'react-dom',
     'react-dom/client',
     'react-router-dom',
     '@variousjs/various',
     ...variousConfig.externals,
   ],
-  mode: 'production',
+  mode: NODE_ENV || 'production',
   devtool: 'source-map',
   resolve: {
     // 必须加上 .js，不然 webpack dev server 会报错找不到模块

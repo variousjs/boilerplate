@@ -1,4 +1,4 @@
-import store from './entry/store'
+import store from './components/entry/store'
 
 export type Store = typeof store
 export type Config = {
