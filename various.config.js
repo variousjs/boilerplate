@@ -12,7 +12,7 @@ const components = fs
     }
   }, {})
 
-const { entry, ...depsComponents } = Object.keys(components).reduce((prev, cur) => {
+const depsComponents = Object.keys(components).reduce((prev, cur) => {
   return {
     ...prev,
     [cur]: `./dist/${cur}.js`,
@@ -42,7 +42,6 @@ const getPackageSrc = (name) => {
 /** @type {import('@variousjs/various').Config} */
 const config = {
   env: 'development',
-  entry,
   dependencies: {
     ...getPackageSrc('react'),
     ...getPackageSrc('react-dom'),

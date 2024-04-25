@@ -63,7 +63,7 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              sourceMap: NODE_ENV === 'development',
               modules: {
                 localIdentName: '[local]_[hash:base64:5]',
               },
@@ -72,7 +72,7 @@ const config = {
           {
             loader: 'less-loader',
             options: {
-              sourceMap: true,
+              sourceMap: NODE_ENV === 'development',
               lessOptions: {
                 javascriptEnabled: true,
               },

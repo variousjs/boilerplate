@@ -1,9 +1,9 @@
 const base = require('./base')
 
-const { entry } = base.entry
+const { app } = base.entry
 const config = {
   ...base,
-  entry: { entry },
+  entry: { app },
 }
 
 module.exports = config

@@ -6,9 +6,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "lint": "tsc --noemit && eslint . --ext .ts,.tsx,.js",
-    "start": "NODE_ENV=development webpack --progress --config ./webpack/component.js & webpack serve --config ./webpack/entry.js --progress & npm run css:dev",
+    "start": "NODE_ENV=development webpack --progress --config ./webpack/component.js & webpack serve --config ./webpack/app.js --progress & npm run css:dev",
     "build": "webpack --progress --config ./webpack/base.js && npm run css:build",
     "css:build": "npx tailwindcss -i ./src/shadcn-ui/globals.css -o ./public/globals.css --minify",
     "css:dev": "npx tailwindcss -i ./src/shadcn-ui/globals.css -o ./public/globals.css --watch",
@@ -44,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@variousjs/registry": "^0.1.5",
-    "@variousjs/various": "^3.1.0",
+    "@variousjs/various": "^4.0.0",
     "babel-loader": "^8.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

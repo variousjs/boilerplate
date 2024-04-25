@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { ComponentProps, getConfig, ComponentNode } from '@variousjs/various'
 import { useNavigate } from 'react-router-dom'
-import { Menu, Card } from 'shadcn-ui'
 import { Config, Store } from '../../types'
 
 export const H: FC<ComponentProps<Store>> = () => {
@@ -13,23 +12,18 @@ export const H: FC<ComponentProps<Store>> = () => {
   }
 
   return (
-    <Menu.Menubar>
+    <div className="flex justify-between gap-10">
       {$config.links.map(({ path, name }) => (
-        <Menu.MenubarMenu key={path}>
-          <Menu.MenubarTrigger onClick={() => onRouterChange(path)}>{name}</Menu.MenubarTrigger>
-        </Menu.MenubarMenu>
+        <div className="border-solid cursor-pointer rounded py-0.5 px-2 border-2 border-sky-500" onClick={() => onRouterChange(path)} key={path}>
+          {name}
+        </div>
       ))}
-    </Menu.Menubar>
+    </div>
   )
 }
 
 export const S = ((props) => {
   return (
-    <Card.Card>
-      <Card.CardHeader>
-        <Card.CardTitle>Global Store</Card.CardTitle>
-        <Card.CardDescription>{props.$store.user.name}</Card.CardDescription>
-      </Card.CardHeader>
-    </Card.Card>
+    <div>Srore: {props.$store.user.name}</div>
   )
 }) as ComponentNode<Store>
