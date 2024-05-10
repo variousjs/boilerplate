@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { ComponentProps, Nycticorax, Invoker, I18n } from '@variousjs/various'
-import { Button } from 'shadcn-ui'
 import { Store } from '../../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
@@ -35,16 +34,17 @@ class X extends Component<S & ComponentProps<Store>> {
       <>
         <h3>Next</h3>
         <div>
-          <ul className="list-disc">
+          <ul>
             <li>Store: {user.name}</li>
             <li>Value: {value}</li>
             <li>Locale: {$t('title', { name: 'various' })}</li>
           </ul>
-          <Button
+          <div
+            className="btn"
             onClick={() => $dispatch('card', 'logName')}
           >
             Name
-          </Button>
+          </div>
         </div>
       </>
     )

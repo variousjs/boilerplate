@@ -19,7 +19,7 @@ const depsComponents = Object.keys(components).reduce((prev, cur) => {
   }
 }, {})
 
-const externals = ['shadcn-ui']
+const externals = []
 
 /**
  * @param {keyof typeof registry} name
@@ -46,7 +46,6 @@ const config = {
     ...getPackageSrc('react'),
     ...getPackageSrc('react-dom'),
     ...getPackageSrc('react-router-dom'),
-    'shadcn-ui': './dist/shadcn-ui.js',
     ...depsComponents,
   },
   pages: [
@@ -81,6 +80,6 @@ const config = {
 
 module.exports = {
   config,
-  components: { ...components, 'shadcn-ui': path.resolve('./src/shadcn-ui/index.ts') },
+  components,
   externals,
 }

@@ -12,9 +12,9 @@ export const H: FC<ComponentProps<Store>> = () => {
   }
 
   return (
-    <div className="flex justify-between gap-10">
+    <div>
       {$config.links.map(({ path, name }) => (
-        <div className="border-solid cursor-pointer rounded py-0.5 px-2 border-2 border-sky-500" onClick={() => onRouterChange(path)} key={path}>
+        <div className="btn" onClick={() => onRouterChange(path)} key={path}>
           {name}
         </div>
       ))}

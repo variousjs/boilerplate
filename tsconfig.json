@@ -18,8 +18,6 @@
     "resolveJsonModule": true,
     "strictPropertyInitialization": false,
     "paths": {
-      "@/*": ["./src/shadcn-ui/*"],
-      "shadcn-ui": ["./src/shadcn-ui/index.ts"]
     }
   },
   "exclude": ["dist", "docs"]
