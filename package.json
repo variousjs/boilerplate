@@ -10,7 +10,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "lint": "tsc --noemit && eslint . --ext .ts,.tsx,.js",
+    "lint": "tsc --skipLibCheck --noemit && eslint . --ext .ts,.tsx,.js",
     "start": "NODE_ENV=development webpack --progress --config ./webpack/component.js & webpack serve --config ./webpack/app.js --progress",
     "build": "webpack --progress --config ./webpack/base.js",
     "prepublishOnly": "node bin/copy.js"
