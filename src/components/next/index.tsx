@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ComponentProps, Nycticorax, Invoker, I18n } from '@variousjs/various'
+import { ComponentProps, Nycticorax, PublicAction, I18n } from '@variousjs/various'
 import { Store } from '../../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
@@ -16,7 +16,7 @@ const {
 createStore({ value: 0 })
 
 class X extends Component<S & ComponentProps<Store>> {
-  static setValue: Invoker = async (value) => {
+  static setValue: PublicAction = async (value) => {
     const store = getStore()
     emit({ value: value + store.value }, true)
   }
@@ -41,7 +41,11 @@ class X extends Component<S & ComponentProps<Store>> {
           </ul>
           <div
             className="btn"
-            onClick={() => $dispatch('card', 'logName')}
+            onClick={() => $dispatch({
+              name: 'card',
+              action: 'logName',
+              value: undefined,
+            })}
           >
             Name
           </div>

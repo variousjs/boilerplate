@@ -13,13 +13,17 @@ const H = ((props) => {
       <div>
         <div
           className="btn"
-          onClick={() => props.$dispatch('next', 'setValue', 1)}
+          onClick={() => props.$dispatch({ name: 'next', action: 'setValue', value: 1 })}
         >
           Value
         </div>
         <div
           className="btn"
-          onClick={() => props.$dispatch('app', 'setLocale', props.$store.locale === 'zh' ? 'en' : 'zh')}
+          onClick={() => props.$dispatch({
+            name: 'app',
+            action: 'setLocale',
+            value: props.$store.locale === 'zh' ? 'en' : 'zh',
+          })}
         >
           Locale
         </div>
@@ -27,7 +31,11 @@ const H = ((props) => {
           className="btn"
           onClick={async () => {
             const a = `${Math.random().toFixed(2)}`
-            await props.$dispatch('app', 'setName', a)
+            await props.$dispatch({
+              name: 'app',
+              action: 'setName',
+              value: a,
+            })
           }}
         >
           Store
