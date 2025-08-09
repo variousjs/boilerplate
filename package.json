@@ -42,7 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@variousjs/registry": "^0.1.5",
-    "@variousjs/various": "^4.1.0",
+    "@variousjs/various": "^4.2.0",
     "babel-loader": "^8.2.2",
     "core-js": "^3.25.1",
     "css-loader": "^6.3.0",
