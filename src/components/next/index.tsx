@@ -22,7 +22,7 @@ class X extends Component<S & ComponentProps<Store>> {
   }
 
   static $i18n: I18n = () => ({
-    localeKey: 'locale',
+    lngStoreKey: 'locale',
     resources: { zh, en },
   })
 

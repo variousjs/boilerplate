@@ -26,6 +26,7 @@ const config = {
     'react-dom/client',
     'react-router-dom',
     '@variousjs/various',
+    'vue',
     ...variousConfig.externals,
   ],
   mode: NODE_ENV || 'production',

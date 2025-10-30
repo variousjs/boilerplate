@@ -46,6 +46,7 @@ const config = {
     ...getPackageSrc('react'),
     ...getPackageSrc('react-dom'),
     ...getPackageSrc('react-router-dom'),
+    ...getPackageSrc('vue'),
     ...depsComponents,
   },
   pages: [
