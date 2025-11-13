@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "tsc --skipLibCheck --noemit && eslint . --ext .ts,.tsx,.js",
-    "start": "NODE_ENV=development webpack --progress --config ./webpack/component.js & webpack serve --config ./webpack/app.js --progress",
+    "start": "NODE_ENV=development webpack --progress --config ./webpack/component.js & NODE_ENV=development webpack serve --config ./webpack/app.js --progress",
     "build": "webpack --progress --config ./webpack/base.js",
     "prepublishOnly": "node bin/copy.js"
   },
@@ -42,7 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@variousjs/registry": "^0.1.8",
-    "@variousjs/various": "^5.0.1",
+    "@variousjs/various": "^5.1.1",
     "babel-loader": "^8.2.2",
     "core-js": "^3.25.1",
     "css-loader": "^6.3.0",

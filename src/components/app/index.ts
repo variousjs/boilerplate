@@ -7,9 +7,9 @@ import Error from './error'
 
 const entry: App<typeof store> = {
   store,
-  Container,
-  Loader,
-  Error,
+  Root: Container,
+  Fallback: Loader,
+  ErrorFallback: Error,
   actions,
 }
 
