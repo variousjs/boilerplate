@@ -41,7 +41,6 @@ const getPackageSrc = (name) => {
 
 /** @type {import('@variousjs/various').Config} */
 const config = {
-  env: 'development',
   dependencies: {
     ...getPackageSrc('react'),
     ...getPackageSrc('react-dom'),
