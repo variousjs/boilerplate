@@ -1,9 +1,9 @@
-import { Dispatch } from '@variousjs/various'
+import { App } from '@variousjs/various'
 import { Store } from '../../types'
 
-const actions: Record<string, Dispatch<Store>> = {
+const actions: App<Store>['actions'] = {
   async setName({ emit, getStore }, value) {
-    await new Promise((r) => setTimeout(r, 1000))
+    await new Promise((r) => window.setTimeout(r, 1000))
     const user = getStore('user')
     user.name = value
     emit({ user })

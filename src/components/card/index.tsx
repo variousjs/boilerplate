@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComponentNode } from '@variousjs/various'
+import { VariousFC } from '@variousjs/various'
 import { useParams } from 'react-router-dom'
 import { Store } from '../../types'
 
@@ -13,16 +13,16 @@ const H = ((props) => {
       <div>
         <div
           className="btn"
-          onClick={() => props.$dispatch({ name: 'next', action: 'setValue', value: 1 })}
+          onClick={() => props.$dispatch({ target: 'next', action: 'setValue', payload: 1 })}
         >
           Value
         </div>
         <div
           className="btn"
           onClick={() => props.$dispatch({
-            name: 'app',
+            target: 'app',
             action: 'setLocale',
-            value: props.$store.locale === 'zh' ? 'en' : 'zh',
+            payload: props.$store.locale === 'zh' ? 'en' : 'zh',
           })}
         >
           Locale
@@ -32,9 +32,9 @@ const H = ((props) => {
           onClick={async () => {
             const a = `${Math.random().toFixed(2)}`
             await props.$dispatch({
-              name: 'app',
+              target: 'app',
               action: 'setName',
-              value: a,
+              payload: a,
             })
           }}
         >
@@ -43,8 +43,8 @@ const H = ((props) => {
       </div>
     </>
   )
-}) as ComponentNode<Store>
+}) as VariousFC<{}, Store>
 
-H.logName = () => alert('Card')
+H.logName = () => window.alert('Card')
 
 export default H

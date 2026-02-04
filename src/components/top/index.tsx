@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { ComponentProps, getConfig, ComponentNode, version } from '@variousjs/various'
+import { VariousProps, getConfig, VariousFC, version } from '@variousjs/various'
 import { useNavigate } from 'react-router-dom'
 import { Config, Store } from '../../types'
 
-export const H: FC<ComponentProps<Store>> = () => {
+export const H: FC<VariousProps<{}, Store>> = () => {
   const $config = getConfig() as Config
   const navigate = useNavigate()
 
@@ -29,4 +29,4 @@ export const S = ((props) => {
       <p>Version: {version}</p>
     </div>
   )
-}) as ComponentNode<Store>
+}) as VariousFC<{}, Store>

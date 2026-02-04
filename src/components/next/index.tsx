@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ComponentProps, Nycticorax, PublicAction, I18n } from '@variousjs/various'
+import { VariousProps, Nycticorax, PublicAction, I18n } from '@variousjs/various'
 import { Store } from '../../types'
 import zh from './i18n/zh.json'
 import en from './i18n/en.json'
@@ -15,10 +15,10 @@ const {
 
 createStore({ value: 0 })
 
-class X extends Component<S & ComponentProps<Store>> {
+class X extends Component<VariousProps<S, Store>> {
   static setValue: PublicAction = async (value) => {
     const store = getStore()
-    emit({ value: value + store.value }, true)
+    emit({ value: value.payload + store.value }, true)
   }
 
   static $i18n: I18n = () => ({
@@ -42,9 +42,8 @@ class X extends Component<S & ComponentProps<Store>> {
           <div
             className="btn"
             onClick={() => $dispatch({
-              name: 'card',
+              target: 'card',
               action: 'logName',
-              value: undefined,
             })}
           >
             Name

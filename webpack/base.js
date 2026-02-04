@@ -61,6 +61,7 @@ const config = {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               sourceMap: NODE_ENV === 'development',
               modules: {
                 localIdentName: '[local]_[hash:base64:5]',

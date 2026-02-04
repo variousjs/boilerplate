@@ -42,7 +42,7 @@ files.forEach(({ src, dest, destPath }) => {
 
   try {
     fs.copyFileSync(src, dest, fs.constants.COPYFILE_EXCL)
-  } catch (e) {
+  } catch {
     // ignore
   }
 })
