@@ -1,6 +1,6 @@
 {
   "name": "@variousjs/create",
-  "version": "3.3.3",
+  "version": "3.4.0",
   "description": "VariousJS boilerplate",
   "bin": "bin/create.js",
   "publishConfig": {
