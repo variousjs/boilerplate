@@ -1,4 +1,1 @@
-declare module '*.less' {
-  const resource: Record<string, string>
-  export default resource
-}
+/// <reference types="vite/client" />

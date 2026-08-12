@@ -1,48 +1,59 @@
-<!doctype html><html><head><meta charset="UTF-8"/><title>VariousJS</title><script>var VARIOUS_CONFIG = {
-  "dependencies": {
-    "react": "https://cdn.jsdelivr.net/npm/@variousjs/registry@0.1.9/dist/react/19.2.0/index.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/@variousjs/registry@0.1.9/dist/react-dom/19.2.0/index.js",
-    "react-router-dom": "https://cdn.jsdelivr.net/npm/@variousjs/registry@0.1.9/dist/react-router-dom/6.22.1/index.js",
-    "vue": "https://cdn.jsdelivr.net/npm/vue@3.5.22/dist/vue.global.prod.js",
-    "app": "./dist/app.js",
-    "card": "./dist/card.js",
-    "next": "./dist/next.js",
-    "top": "./dist/top.js"
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title> VariousJS </title>
+<link href="./dist/assets/style.css" rel="stylesheet" />
+<script>
+var VARIOUS_CONFIG = {
+  dependencies: {
+    react: 'https://esm.sh/react@19.2.0',
+    'react-dom': 'https://esm.sh/react-dom@19.2.0?deps=react@19.2.0',
+    'react-dom/client': 'https://esm.sh/react-dom@19.2.0/client?deps=react@19.2.0',
+    'react-router-dom': 'https://esm.sh/react-router-dom@6.22.1?deps=react@19.2.0,react-dom@19.2.0',
+    vue: 'https://esm.sh/vue@3.5.40',
+
+    app: './dist/app.js',
+    card: './dist/card.js',
+    next: './dist/next.js',
+    top: './dist/top.js'
   },
-  "pages": [
+  pages: [
     {
-      "path": "/",
-      "components": [
-        "card",
-        "next"
-      ]
+      path: '/',
+      components: ['card', 'next']
     },
     {
-      "path": "/next/:id",
-      "components": [
-        "card",
-        "next"
-      ]
+      path: '/next/:id',
+      components: ['card', 'next']
     },
     {
-      "path": "/error",
-      "components": [
-        "error"
-      ]
+      path: '/error',
+      components: ['error']
     }
   ],
-  "links": [
+  links: [
     {
-      "name": "Home",
-      "path": "/"
+      name: 'Home',
+      path: '/'
     },
     {
-      "name": "Next",
-      "path": "/next/5"
+      name: 'Next',
+      path: '/next/5'
     },
     {
-      "name": "Error",
-      "path": "/error"
+      name: 'Error',
+      path: '/error'
     }
-  ]
-}</script></head><body><div id="root"></div><script src="https://cdn.jsdelivr.net/npm/@variousjs/various@5/dist/loader.js"></script></body></html>
+  ],
+  i18n: {
+    defaultLocale: 'zh'
+  }
+}
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdn.jsdelivr.net/npm/@variousjs/various@6/dist/loader.js"></script>
+</body>
+</html>

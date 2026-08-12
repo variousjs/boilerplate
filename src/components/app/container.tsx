@@ -2,7 +2,7 @@ import React, { Component, memo } from 'react'
 import { createComponent, getConfig } from '@variousjs/various'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { Config, Store } from '../../types'
-import csses from './container.less'
+import csses from './container.module.less'
 
 const Header = createComponent({ module: 'top.H' })
 const Name = createComponent<{}, any, Store>({ module: 'top.S' }, ['user'])

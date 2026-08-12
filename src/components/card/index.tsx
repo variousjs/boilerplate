@@ -15,14 +15,14 @@ const H = ((props) => {
           className="btn"
           onClick={() => props.$dispatch({ target: 'next', action: 'setValue', payload: 1 })}
         >
-          Value
+          Next Value
         </div>
         <div
           className="btn"
           onClick={() => props.$dispatch({
             target: 'app',
             action: 'setLocale',
-            payload: props.$store.locale === 'zh' ? 'en' : 'zh',
+            payload: props.$locale === 'zh' ? 'en' : 'zh',
           })}
         >
           Locale
