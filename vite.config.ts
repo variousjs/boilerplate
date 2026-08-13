@@ -2,12 +2,12 @@ import { defineConfig, type UserConfig } from 'vite'
 import path from 'path'
 import {
   createReadStream,
+  readdirSync,
   statSync,
   readFileSync,
   watch,
 } from 'fs'
 import type { ServerResponse } from 'http'
-import { components } from './various.config.js'
 
 // Externals: not bundled, resolved at runtime via import maps / CDN
 const EXTERNALS = [
@@ -24,7 +24,8 @@ const ROOT = process.cwd()
 function scanComponentEntries(): Record<string, string> {
   const entries: Record<string, string> = {}
 
-  Object.entries(components).forEach(([name, dir]) => {
+  readdirSync(path.resolve(ROOT, './src/components')).forEach((name) => {
+    const dir = path.resolve(ROOT, `./src/components/${name}`)
     const candidates = [
       path.join(dir, 'index.tsx'),
       path.join(dir, 'index.ts'),

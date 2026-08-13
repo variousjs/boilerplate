@@ -3,7 +3,7 @@
   "version": "3.4.0",
   "description": "VariousJS boilerplate",
   "type": "module",
-  "bin": "bin/create.js",
+  "bin": "bin/create.cjs",
   "publishConfig": {
     "access": "public"
   },

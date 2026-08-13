@@ -1,28 +1,28 @@
-const fs = require('fs')
-const package = require('../package.json')
-const packageLock = require('../package-lock.json')
+import fs from 'fs'
+import _package from '../package.json' with { type: 'json' }
+import packageLock from '../package-lock.json' with { type: 'json' }
 
 const files = ['.gitignore', 'package-lock.json', 'package.json']
 
-package.name = 'variousjs'
-package.version = '0.1.0'
-package.private = true
+_package.name = 'variousjs'
+_package.version = '0.1.0'
+_package.private = true
 
 packageLock.name = 'variousjs'
 packageLock.version = '0.1.0'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { prepublishOnly, ...rest } = package.scripts
-package.scripts = rest
+const { prepublishOnly, ...rest } = _package.scripts
+_package.scripts = rest
 
-delete package.bin
-delete package.publishConfig
-delete package.repository
-delete package.keywords
-delete package.bugs
-delete package.homepage
+delete _package.bin
+delete _package.publishConfig
+delete _package.repository
+delete _package.keywords
+delete _package.bugs
+delete _package.homepage
 
-fs.writeFileSync('package.json.copy', JSON.stringify(package, null, 2))
+fs.writeFileSync('package.json.copy', JSON.stringify(_package, null, 2))
 fs.writeFileSync('package-lock.json.copy', JSON.stringify(packageLock, null, 2))
 
 files.forEach((name) => {
