@@ -1,6 +1,6 @@
 {
   "name": "@variousjs/create",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "VariousJS boilerplate",
   "type": "module",
   "bin": "bin/create.cjs",
